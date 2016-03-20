@@ -1,0 +1,30 @@
+function Z=deconvolution(X)
+n=length(X);
+Z=zeros(1:n);
+a=n/2;
+M=zeros(2^a,a);
+Y=zeros(2^a,n);
+for(i=1:2^a)
+    M(i,:)=de2bi(i-1,a);
+    Y(i,:)=encoding(M(i,:));
+    m(i)=distance(Y(i,:),X);
+end
+b=min(m);
+b;
+for(i=1:2^a)
+    if(b==m(i))
+        z=de2bi(i-1,a);
+    end
+end
+t=0.01:0.01:a;
+st=zeros(1,100*a);
+for(i=1:q)
+    st(((i-1)*100+1):i*100)=Z(i);
+end
+Z;
+figure
+plot(s,st);
+axis([0,a+1,-0.1,1.1]);
+title('½â¾í»ý²¨ÐÎ');
+grid;
+end
